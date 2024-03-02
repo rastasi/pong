@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://catrpx1vuhvou"]
+
+[ext_resource type="PackedScene" uid="uid://ce4mnfokb6pkn" path="res://Racket.tscn" id="1_ywul3"]
+[ext_resource type="Script" path="res://Racket.gd" id="2_wrt7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7af8"]
+size = Vector2(100, 600)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ildlg"]
+font_size = 64
+
+[node name="Playground" type="Node2D"]
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+polygon = PackedVector2Array(0, 8, 0, 600, 1200, 600, 1200, 8, 0, 0, 0, 8, 1192, 16, 1192, 16, 1192, 592, 8, 592, 8, 8)
+
+[node name="GoalAreaLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalAreaLeft"]
+position = Vector2(50, 300)
+shape = SubResource("RectangleShape2D_u7af8")
+
+[node name="GoalAreaRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalAreaRight"]
+position = Vector2(1150, 300)
+shape = SubResource("RectangleShape2D_u7af8")
+
+[node name="RacketLeft" parent="." instance=ExtResource("1_ywul3")]
+position = Vector2(128, 224)
+script = ExtResource("2_wrt7t")
+metadata/UP_KEY = "left_up"
+metadata/DOWN_KEY = "left_down"
+
+[node name="RacketRight" parent="." instance=ExtResource("1_ywul3")]
+position = Vector2(1032, 224)
+script = ExtResource("2_wrt7t")
+metadata/UP_KEY = "right_up"
+metadata/DOWN_KEY = "right_down"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 544.0
+offset_top = 32.0
+offset_right = 673.0
+offset_bottom = 120.0
+text = "0 - 0"
+label_settings = SubResource("LabelSettings_ildlg")
+horizontal_alignment = 1
+vertical_alignment = 1
