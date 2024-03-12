@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c71cjy50eonxj"]
+
+[ext_resource type="Theme" uid="uid://bbasvjlc0fdo8" path="res://default_theme.tres" id="1_gow2p"]
+[ext_resource type="Script" path="res://scenes/main_menu/NewGameButton.gd" id="2_xmp3k"]
+[ext_resource type="Script" path="res://scenes/main_menu/ExitButton.gd" id="3_r42kx"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="NewGameContainer" type="PanelContainer" parent="."]
+offset_right = 1200.0
+offset_bottom = 300.0
+
+[node name="NewGameCenter" type="CenterContainer" parent="NewGameContainer"]
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="NewGameContainer/NewGameCenter"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = ExtResource("1_gow2p")
+text = "New Game"
+script = ExtResource("2_xmp3k")
+
+[node name="ExitContainer" type="PanelContainer" parent="."]
+offset_left = 1.0
+offset_top = 300.0
+offset_right = 1201.0
+offset_bottom = 600.0
+
+[node name="ExitCenter" type="CenterContainer" parent="ExitContainer"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="ExitContainer/ExitCenter"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = ExtResource("1_gow2p")
+text = "Exit"
+script = ExtResource("3_r42kx")
+
+[connection signal="pressed" from="NewGameContainer/NewGameCenter/NewGameButton" to="NewGameContainer/NewGameCenter/NewGameButton" method="_on_pressed"]
+[connection signal="pressed" from="ExitContainer/ExitCenter/ExitButton" to="ExitContainer/ExitCenter/ExitButton" method="_on_pressed"]
