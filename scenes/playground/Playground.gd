@@ -31,7 +31,8 @@ func _ready():
 
 
 func _process(delta):
-	pass
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
 
 
 func _on_goal_area_left_body_entered(body):

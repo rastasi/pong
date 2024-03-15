@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://c71cjy50eonxj"]
+[gd_scene load_steps=8 format=3 uid="uid://c71cjy50eonxj"]
 
 [ext_resource type="Theme" uid="uid://bbasvjlc0fdo8" path="res://default_theme.tres" id="1_gow2p"]
 [ext_resource type="Script" path="res://scenes/main_menu/NewGameButton.gd" id="2_xmp3k"]
 [ext_resource type="Script" path="res://scenes/main_menu/ExitButton.gd" id="3_r42kx"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3qeo8"]
+keycode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_heomt"]
+events = [SubResource("InputEventKey_3qeo8")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_p7j63"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_lofla"]
+events = [SubResource("InputEventKey_p7j63")]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -17,6 +29,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme = ExtResource("1_gow2p")
+shortcut = SubResource("Shortcut_heomt")
 text = "New Game"
 script = ExtResource("2_xmp3k")
 
@@ -33,6 +46,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme = ExtResource("1_gow2p")
+shortcut = SubResource("Shortcut_lofla")
 text = "Exit"
 script = ExtResource("3_r42kx")
 
