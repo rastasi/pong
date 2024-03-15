@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://catrpx1vuhvou"]
+[gd_scene load_steps=7 format=3 uid="uid://catrpx1vuhvou"]
 
 [ext_resource type="Script" path="res://scenes/playground/Playground.gd" id="1_86x6h"]
 [ext_resource type="PackedScene" uid="uid://ce4mnfokb6pkn" path="res://scenes/playground/racket/Racket.tscn" id="1_ywul3"]
+[ext_resource type="Texture2D" uid="uid://cf7xqjtabmist" path="res://assets/playground.png" id="2_5bwsm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2vae"]
 friction = 0.0
@@ -23,6 +24,11 @@ physics_material_override = SubResource("PhysicsMaterial_v2vae")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
 polygon = PackedVector2Array(0, 8, 0, 600, 1200, 600, 1200, 8, 0, 0, 0, 8, 1192, 16, 1192, 16, 1192, 592, 8, 592, 8, 16)
 one_way_collision_margin = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="Wall"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5bwsm")
 
 [node name="GoalAreaLeft" type="Area2D" parent="."]
 
@@ -59,9 +65,9 @@ metadata/UP_KEY = "right_up"
 metadata/DOWN_KEY = "right_down"
 
 [node name="Score" type="Label" parent="."]
-offset_left = 544.0
+offset_left = 534.0
 offset_top = 32.0
-offset_right = 673.0
+offset_right = 663.0
 offset_bottom = 120.0
 text = "0 - 0"
 label_settings = SubResource("LabelSettings_ildlg")
