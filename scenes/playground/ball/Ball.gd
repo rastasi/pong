@@ -1,21 +1,25 @@
 extends RigidBody2D
 
 
-const SPEED = 300.00
+const SPEED = 500.00
 
 
-func _ready():
+func get_random_linear_velocity():
 	randomize()
-
-	global_position = Vector2(640, 360)
-
+	
 	var x_direction = pow(-1, randi() % 2)
 	var y_direction = pow(-1, randi() % 2)
-
-	await get_tree().create_timer(1.0).timeout
 	
-	linear_velocity = Vector2(x_direction, y_direction) * SPEED
+	return Vector2(x_direction, y_direction) * SPEED
+
+func _ready():
+	global_position = Vector2(640, 360)
+	await get_tree().create_timer(1.0).timeout
+	linear_velocity = get_random_linear_velocity()
 
 func _process(delta):
 	pass
 
+
+func _on_body_entered(body):
+	linear_velocity = get_random_linear_velocity()

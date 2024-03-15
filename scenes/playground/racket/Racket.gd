@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-const SPEED = 300.0
+const SPEED = 500.0
 
 func _physics_process(delta):
 	if Input.is_action_pressed(get_meta("UP_KEY")):

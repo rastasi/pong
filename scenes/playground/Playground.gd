@@ -44,24 +44,3 @@ func _on_goal_area_right_body_entered(body):
 	if body_is_ball(body):
 		left_point += 1
 		new_round(body)
-
-
-func ball_to_racket(body):
-	if body_is_ball(body):
-		var new_linear_velocity = body.linear_velocity * -1
-		
-		#if new_linear_velocity.y == 300 and new_linear_velocity.x == 300:
-		#	new_linear_velocity.x -= 10
-		#	new_linear_velocity.y += 10
-			
-		body.linear_velocity = new_linear_velocity
-		print_debug(new_linear_velocity)
-
-
-func _on_racket_left_body_entered(body):
-	ball_to_racket(body)
-
-func _on_racket_right_body_entered(body):
-	ball_to_racket(body)
-
-
