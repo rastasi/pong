@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://2kmyygabgfyo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u7eb1"]
+font_size = 40
+
+[node name="Main" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1200.0
+offset_bottom = 600.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control"]
+layout_mode = 2
+offset_top = 88.0
+offset_right = 1200.0
+offset_bottom = 600.0
+
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 100.0
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 100.0
+text = "Pong"
+label_settings = SubResource("LabelSettings_u7eb1")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
